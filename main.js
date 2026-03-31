@@ -50,47 +50,47 @@ function observeFadeIns() {
 observeFadeIns();
 
 // ============ FORM SUBMIT ============
-function submitForm() {
-const form = document.getElementById('contact-form');
+const contactForm = document.getElementById('contact-form');
 
-form.addEventListener('submit', function(e) {
-  e.preventDefault(); // Empêche le rechargement de la page
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // Empêche le rechargement de la page
 
-  const formData = new FormData(form);
-  const object = Object.fromEntries(formData);
-  const json = JSON.stringify(object);
+    const formData = new FormData(contactForm);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
 
-  // Message d'attente sur le bouton
-  const btn = document.querySelector('.btn-submit');
-  const originalText = btn.innerHTML;
-  btn.innerHTML = "Envoi en cours...";
+    // Message d'attente sur le bouton
+    const btn = contactForm.querySelector('.btn-submit');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = "Envoi en cours...";
 
-  fetch('https://api.web3forms.com/submit', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
-    },
-    body: json
-  })
-  .then(async (response) => {
-    let result = await response.json();
-    if (response.status == 200) {
-      // SUCCESS : Affiche votre notification existante
-      const notif = document.getElementById('notification');
-      notif.classList.add('show');
-      setTimeout(() => notif.classList.remove('show'), 3500);
-      form.reset();
-    } else {
-      alert("Erreur : " + result.message);
-    }
-  })
-  .catch(error => {
-    console.log(error);
-    alert("Une erreur est survenue lors de l'envoi.");
-  })
-  .finally(() => {
-    btn.innerHTML = originalText;
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: json
+    })
+    .then(async (response) => {
+      let result = await response.json();
+      if (response.status == 200) {
+        // SUCCESS : Affiche ta notification
+        const notif = document.getElementById('notification');
+        notif.classList.add('show');
+        setTimeout(() => notif.classList.remove('show'), 3500);
+        contactForm.reset();
+      } else {
+        alert("Erreur : " + result.message);
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      alert("Une erreur est survenue lors de l'envoi.");
+    })
+    .finally(() => {
+      btn.innerHTML = originalText;
+    });
   });
-});
 }
