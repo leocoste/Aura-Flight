@@ -17,6 +17,9 @@
 <!-- NAV -->
 <nav id="mainNav">
   <a class="nav-logo" href="#" onclick="showPage('portfolio')"><span>AURA</span>FLIGHT</a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
   <ul class="nav-links">
     <li><a href="#" onclick="showPage('portfolio')" id="nav-portfolio" class="active">Portfolio</a></li>
     <li><a href="#" onclick="showPage('forfaits')" id="nav-forfaits">Forfaits</a></li>
@@ -40,55 +43,68 @@
 
   <section class="section">
     <div class="section-label">Galerie — Photos & Vidéos</div>
-    <div class="portfolio-grid">
-      <div class="grid-item fade-in">
-        <div class="placeholder-media aerial-1">
-          <svg class="drone-icon" viewBox="0 0 100 60" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="15" cy="15" r="10" stroke-width="0.8"/><circle cx="85" cy="15" r="10" stroke-width="0.8"/>
-            <circle cx="15" cy="45" r="10" stroke-width="0.8"/><circle cx="85" cy="45" r="10" stroke-width="0.8"/>
-            <rect x="35" y="22" width="30" height="16" rx="4" stroke-width="0.8"/>
-            <line x1="22" y1="22" x2="35" y2="28" stroke-width="0.8"/>
-            <line x1="78" y1="22" x2="65" y2="28" stroke-width="0.8"/>
-            <line x1="22" y1="38" x2="35" y2="32" stroke-width="0.8"/>
-            <line x1="78" y1="38" x2="65" y2="32" stroke-width="0.8"/>
-          </svg>
-        </div>
+    <div class="portfolio-grid" id="portfolio">
+      
+      <div class="grid-item fade-in" data-type="youtube" data-src="M_5OvrzDVeM">
+        <img src="https://img.youtube.com/vi/M_5OvrzDVeM/hqdefault.jpg" />
         <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
         <div class="media-label">
           <div class="media-label-title">Panorama Urbain</div>
           <div class="media-label-sub">Cinématique · 4K</div>
         </div>
       </div>
-      <div class="grid-item fade-in">
-        <div class="placeholder-media aerial-2"></div>
-        <div class="media-label"><div class="media-label-title">Architecture</div><div class="media-label-sub">Photo · RAW</div></div>
+
+      <div class="grid-item fade-in" data-type="image" data-src="img/photo1.jpg">
+        <img src="img/photo1.jpg" />
+        <div class="media-label">
+          <div class="media-label-title">Architecture</div>
+          <div class="media-label-sub">Photo · RAW</div>
+        </div>
       </div>
-      <div class="grid-item fade-in">
-        <div class="placeholder-media aerial-3"></div>
-        <div class="media-label"><div class="media-label-title">Événement Privé</div><div class="media-label-sub">Vidéo · Montée</div></div>
+
+      <div class="grid-item fade-in" data-type="image" data-src="img/photo1.jpg">
+        <img src="img/photo1.jpg" />
+        <div class="media-label">
+          <div class="media-label-title">Architecture</div>
+          <div class="media-label-sub">Photo · RAW</div>
+        </div>
       </div>
-      <div class="grid-item fade-in">
-        <div class="placeholder-media aerial-4"></div>
+
+      <div class="grid-item fade-in" data-type="youtube" data-src="VIDEO_ID">
+        <img src="https://img.youtube.com/vi/VIDEO_ID/hqdefault.jpg" />
+        <div class="play-icon"></div>
+        <div class="media-label">
+          <div class="media-label-title">Événement Privé</div>
+          <div class="media-label-sub">Vidéo</div>
+        </div>
+      </div>
+
+      <div class="grid-item fade-in" data-type="youtube" data-src="M_5OvrzDVeM">
+        <img src="https://img.youtube.com/vi/M_5OvrzDVeM/hqdefault.jpg" />
         <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="media-label"><div class="media-label-title">Paysage Naturel</div><div class="media-label-sub">FPV · 4K</div></div>
+        <div class="media-label">
+          <div class="media-label-title">Panorama Urbain</div>
+          <div class="media-label-sub">Cinématique · 4K</div>
+        </div>
       </div>
-      <div class="grid-item fade-in">
-        <div class="placeholder-media aerial-5"></div>
-        <div class="media-label"><div class="media-label-title">Immobilier</div><div class="media-label-sub">Photo · HDR</div></div>
+
+      <div class="grid-item fade-in" data-type="image" data-src="img/photo1.jpg">
+        <img src="img/photo1.jpg" />
+        <div class="media-label">
+          <div class="media-label-title">Architecture</div>
+          <div class="media-label-sub">Photo · RAW</div>
+        </div>
       </div>
-      <div class="grid-item fade-in">
-        <div class="placeholder-media aerial-6"></div>
-        <div class="play-icon"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
-        <div class="media-label"><div class="media-label-title">Drone Racing</div><div class="media-label-sub">FPV · Immersif</div></div>
-      </div>
-      <div class="grid-item fade-in">
-        <div class="placeholder-media aerial-7"></div>
-        <div class="media-label"><div class="media-label-title">Vue Littorale</div><div class="media-label-sub">Cinématique · 4K</div></div>
-      </div>
+
     </div>
-    <p style="margin-top:30px; font-size:0.7rem; color:var(--dim); letter-spacing:0.1em;">
-      ↑ Vos médias apparaîtront ici — remplacez les placeholders par vos fichiers réels.
-    </p>
+
+    <!-- POPUP -->
+    <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <div class="lightbox-content" id="lightbox-content"></div>
+      <div class="nav prev">&#10094;</div>
+      <div class="nav next">&#10095;</div>
+    </div>
   </section>
 
   <section class="video-section">
@@ -298,7 +314,7 @@
         <div class="contact-details">
           <div class="contact-detail-item">
             <div class="contact-detail-label">Email professionnel</div>
-            <div class="contact-detail-val">contact@auraflight.fr</div>
+            <div class="contact-detail-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f2919d9c86939186b293878093949e9b959a86dc9480">[email&#160;protected]</a></div>
           </div>
           <div class="contact-detail-item">
             <div class="contact-detail-label">Zone d'intervention principale</div>
@@ -310,7 +326,7 @@
           </div>
           <div class="contact-detail-item">
             <div class="contact-detail-label">Disponibilité</div>
-            <div class="contact-detail-val">Lun – Sam, 8h – 20h</div>
+            <div class="contact-detail-val">Sam – Dim, 8h – 20h</div>
           </div>
         </div>
       </div>
@@ -324,7 +340,7 @@
 <form id="contact-form">
   <input type="hidden" name="access_key" value="102f770f-6d08-47e5-b6d8-f5c4bec3d5bf">
   
-  <input type="hidden" name="subject" value="Nouveau contact depuis AURA FLIGHT">
+  <input type="hidden" name="subject" id="f-subject" value="Nouveau contact depuis AURA FLIGHT">
 
   <div class="form-row">
     <div class="form-group">
@@ -345,12 +361,17 @@
     <input type="tel" name="telephone" id="f-tel" placeholder="+33 6 ..."/>
   </div>
   <div class="form-group">
+    <label>Lieu de la prestation</label>
+    <input type="text" name="lieu_prestation" id="f-lieu" placeholder="Ville, Code Postal ou Lieu-dit" required/>
+  </div>
+  <div class="form-group">
     <label>Type de projet</label>
     <select name="type_projet" id="f-projet">
       <option value="Non spécifié">— Sélectionner —</option>
-      <option>Mariage / Événement privé</option>
+      <option>Événements</option>
+      <option>Publicité</option>
       <option>Immobilier</option>
-      <option>Événementiel professionnel</option>
+      <option>Mariage / Événement privé</option>
       <option>Architecture / Construction</option>
       <option>Tourisme / Paysage</option>
       <option>Autre</option>
@@ -365,6 +386,8 @@
     <div class="form-note">Réponse sous 24h ouvrées</div>
   </div>
 </form>
+
+  </div><!-- /.contact-layout -->
 
   <footer>
     <div class="footer-logo"><span>AURA</span>FLIGHT</div>

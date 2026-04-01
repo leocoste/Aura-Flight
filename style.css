@@ -74,6 +74,25 @@ nav.scrolled {
 }
 .nav-links a:hover, .nav-links a.active { color: var(--white); }
 
+/* Hamburger — masqué sur desktop */
+.nav-hamburger {
+  display: none;
+  flex-direction: column; justify-content: center; align-items: center;
+  gap: 5px;
+  background: none; border: none; cursor: pointer;
+  width: 36px; height: 36px; padding: 4px;
+  z-index: 200;
+}
+.nav-hamburger span {
+  display: block; width: 22px; height: 1px;
+  background: var(--white);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+.nav-hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
 /* ============ PAGE SYSTEM ============ */
 .page { display: none; }
 .page.active { display: block; }
@@ -497,6 +516,7 @@ nav.scrolled {
 }
 
 .contact-form-area { padding: 80px 60px; }
+#contact-form { padding: 80px 60px; }
 .form-group { margin-bottom: 32px; }
 .form-group label {
   display: block; font-size: 0.62rem; letter-spacing: 0.3em;
@@ -583,7 +603,6 @@ input:-webkit-autofill {
   height: auto;
   max-width: 320px;
   object-fit: contain;
-  /* Optionnel : ajoute un léger flottement animé */
   animation: float 6s ease-in-out infinite;
   filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
   position: absolute;
@@ -604,10 +623,256 @@ input:-webkit-autofill {
   50% { transform: translateY(-15px); }
 }
 
-/* On s'assure que le conteneur visuel est bien centré */
 .drone-visual {
   min-height: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* IMAGES GRID */
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 80%;
+}
+
+.lightbox-content img,
+.lightbox-content iframe {
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox iframe {
+  aspect-ratio: 16/9;
+}
+
+.close {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  font-size: 40px;
+  cursor: pointer;
+  padding: 20px;
+  user-select: none;
+}
+
+.prev { left: 20px; }
+.next { right: 20px; }
+
+
+/* ================================================================
+   RESPONSIVE — TABLET (≤ 1024px)
+   ================================================================ */
+@media (max-width: 1024px) {
+  nav { padding: 22px 32px; }
+  nav.scrolled { padding: 16px 32px; }
+
+  .hero { padding: 80px 32px; }
+  .hero-scroll { right: 32px; }
+
+  .section { padding: 80px 32px; }
+  .video-section { padding: 60px 32px; }
+
+  .forfaits-header { padding: 0 32px 60px; }
+  .forfait-card { padding: 50px 40px; }
+  .forfait-compare { padding: 60px 32px; }
+
+  .apropos-intro { padding: 0 32px 60px; gap: 50px; }
+  .drones-section { padding: 60px 32px; }
+  .drone-card { padding: 40px; }
+  .certif-section { padding: 60px 32px; }
+
+  .contact-info { padding: 60px 32px; }
+  #contact-form { padding: 60px 32px; }
+
+  footer { padding: 40px 32px; }
+}
+
+
+/* ================================================================
+   RESPONSIVE — MOBILE (≤ 768px)
+   ================================================================ */
+@media (max-width: 768px) {
+
+  /* --- Curseur personnalisé désactivé sur tactile --- */
+  body { cursor: auto; }
+  .cursor, .cursor-ring { display: none; }
+  .grid-item, .video-card, .btn-submit, .btn-contact,
+  .form-group select, .nav-hamburger { cursor: pointer; }
+
+  /* --- Nav hamburger --- */
+  nav {
+    padding: 20px 24px;
+    background: rgba(8,8,8,0.97);
+    backdrop-filter: blur(20px);
+  }
+  nav.scrolled { padding: 16px 24px; }
+
+  .nav-hamburger { display: flex; }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(8,8,8,0.98);
+    align-items: center; justify-content: center;
+    gap: 36px;
+    z-index: 150;
+  }
+  .nav-links.open { display: flex; }
+  .nav-links a {
+    font-size: 1rem;
+    letter-spacing: 0.3em;
+  }
+
+  /* --- Hero --- */
+  .hero {
+    padding: 100px 24px 60px;
+    height: auto;
+    min-height: 100svh;
+  }
+  .hero-sub { font-size: 0.88rem; }
+  .hero-scroll { display: none; }
+
+  /* --- Sections communes --- */
+  .section { padding: 60px 24px; }
+  .section-label { margin-bottom: 36px; }
+
+  /* --- Portfolio grid : 2 colonnes uniformes --- */
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .grid-item:nth-child(1),
+  .grid-item:nth-child(2),
+  .grid-item:nth-child(3),
+  .grid-item:nth-child(4),
+  .grid-item:nth-child(5),
+  .grid-item:nth-child(6),
+  .grid-item:nth-child(7) {
+    grid-column: span 1;
+  }
+  /* Premier élément pleine largeur pour mettre en avant */
+  .grid-item:nth-child(1) { grid-column: span 2; }
+
+  /* Labels toujours visibles sur mobile (pas de hover) */
+  .media-label { transform: translateY(0); }
+  .grid-item .play-icon { opacity: 1; }
+
+  /* --- Vidéos --- */
+  .video-section { padding: 50px 24px; }
+  .video-grid {
+    grid-template-columns: 1fr;
+    margin-top: 36px;
+  }
+
+  /* --- Forfaits --- */
+  #page-forfaits { padding-top: 100px; }
+  .forfaits-header { padding: 0 24px 48px; }
+  .forfaits-grid { grid-template-columns: 1fr; }
+  .forfait-card { padding: 40px 24px; }
+  .forfait-num { font-size: 5rem; top: 24px; right: 24px; }
+  .forfait-compare { padding: 48px 24px; }
+  .compare-table th,
+  .compare-table td { padding: 12px 10px; font-size: 0.75rem; }
+
+  /* --- À propos --- */
+  #page-apropos { padding-top: 100px; }
+  .apropos-intro {
+    padding: 0 24px 48px;
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .apropos-stats { gap: 30px; flex-wrap: wrap; }
+
+  .drones-section { padding: 48px 24px; }
+  .drones-grid { grid-template-columns: 1fr; }
+  .drone-card { padding: 32px 24px; }
+
+  /* Reset drone-img margins qui débordaient */
+  .drone-img {
+    position: relative;
+    margin-top: 0;
+    margin-left: 0;
+    max-width: 220px;
+  }
+  .drone-visual {
+    min-height: 160px;
+    margin-bottom: 28px;
+  }
+
+  .certif-section { padding: 48px 24px; }
+  .certif-grid { grid-template-columns: 1fr; }
+  .certif-item { padding: 28px 20px; }
+
+  /* --- Contact --- */
+  #page-contact { padding-top: 100px; }
+  .contact-layout {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .contact-info {
+    padding: 48px 24px 36px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  #contact-form { padding: 40px 24px 48px; }
+
+  .form-row { grid-template-columns: 1fr; gap: 0; }
+  .form-submit { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .btn-submit { width: 100%; text-align: center; }
+
+  /* --- Footer --- */
+  footer {
+    padding: 36px 24px;
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  /* --- Lightbox --- */
+  .close { top: 16px; right: 20px; font-size: 30px; }
+  .nav { font-size: 28px; padding: 12px; }
+  .lightbox-content { max-width: 95%; max-height: 85%; }
+
+  /* --- Notification --- */
+  .notification { white-space: normal; text-align: center; width: 90%; left: 5%; transform: translateY(20px); }
+  .notification.show { transform: translateY(0); }
+}
+
+/* ================================================================
+   RESPONSIVE — TRÈS PETIT MOBILE (≤ 380px)
+   ================================================================ */
+@media (max-width: 380px) {
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .grid-item:nth-child(1) { grid-column: span 1; }
+  .apropos-stats { flex-direction: column; gap: 20px; }
 }
