@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA FLIGHT — Forfaits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="notification" id="notification">Message envoyé avec succès ✓</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html"><span>AURA</span>FLIGHT</a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html" id="nav-portfolio">Portfolio</a></li>
+    <li><a href="forfaits.html" id="nav-forfaits" class="active">Forfaits</a></li>
+    <li><a href="apropos.html" id="nav-apropos">À propos</a></li>
+    <li><a href="contact.html" id="nav-contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE: FORFAITS -->
+<div id="page-forfaits" class="page active">
+  <div class="forfaits-header">
+    <h2>NOS<br/><em>FORFAITS</em></h2>
+    <p>Deux formules pensées pour répondre à vos besoins, sans superflu. Tarifs transparents, résultats professionnels.</p>
+  </div>
+
+  <div class="forfaits-grid">
+    <div class="forfait-card">
+      <div class="forfait-num">01</div>
+      <div class="forfait-badge">Forfait Essentiel</div>
+      <div class="forfait-name">AERAURA</div>
+      <div class="forfait-tagline">Plans aériens sur mesure</div>
+      <div class="forfait-price">À partir de 180 €</div>
+      <div class="forfait-price-note">Demi-journée de tournage incluse</div>
+      <div class="forfait-divider"></div>
+      <ul class="forfait-features">
+        <li class="active">Repérage et planification du vol</li>
+        <li class="active">Demi-journée de tournage (4h)</li>
+        <li class="active">Plans aériens sur mesure selon brief</li>
+        <li class="active">Fichiers RAW / Log livrés en haute qualité</li>
+        <li class="active">Zone Auvergne Rhône Alpes incluse</li>
+        <li>Montage vidéo final</li>
+        <li>Musique et étalonnage couleur</li>
+      </ul>
+      <a href="contact.html" class="btn-contact">Demander un devis</a>
+    </div>
+
+    <div class="forfait-card featured">
+      <div class="forfait-num">02</div>
+      <div class="forfait-badge">Forfait Complet</div>
+      <div class="forfait-name">VIDEAURA</div>
+      <div class="forfait-tagline">Plans aériens + vidéo montée prête à l'emploi</div>
+      <div class="forfait-price">À partir de 380 €</div>
+      <div class="forfait-price-note">Journée complète + montage livré sous 7 jours</div>
+      <div class="forfait-divider"></div>
+      <ul class="forfait-features">
+        <li class="active">Repérage et planification du vol</li>
+        <li class="active">Journée complète de tournage (8h)</li>
+        <li class="active">Plans aériens sur mesure selon brief</li>
+        <li class="active">Fichiers RAW / Log livrés en haute qualité</li>
+        <li class="active">Zone Auvergne Rhône Alpes incluse</li>
+        <li class="active">Montage vidéo final prêt à l'utilisation</li>
+        <li class="active">Musique libre de droits & étalonnage couleur</li>
+      </ul>
+      <a href="contact.html" class="btn-contact accent">Demander un devis</a>
+    </div>
+  </div>
+
+  <div class="forfait-compare">
+    <div class="section-label">Comparatif détaillé</div>
+    <table class="compare-table">
+      <thead>
+        <tr><th>Prestation</th><th>AERAURA</th><th>VIDEAURA</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Repérage & brief</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Tournage aérien</td><td>Demi-journée</td><td>Journée complète</td></tr>
+        <tr><td>Plans sur mesure</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Fichiers bruts haute qualité</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Montage vidéo</td><td class="no">—</td><td class="yes">✓</td></tr>
+        <tr><td>Étalonnage couleur</td><td class="no">—</td><td class="yes">✓</td></tr>
+        <tr><td>Musique libre de droits</td><td class="no">—</td><td class="yes">✓</td></tr>
+        <tr><td>Délai de livraison</td><td>sous 24h ouvrés</td><td>7 jours ouvrés</td></tr>
+        <tr><td>Déplacement AURA</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Devis sur mesure possible</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:30px; font-size:0.75rem; color:var(--dim); line-height:1.7;">
+      Les tarifs indiqués sont des prix de départ pour des projets standard en Auvergne Rhône Alpes.
+      Des suppléments peuvent s'appliquer selon la complexité du projet, les autorisations de vol nécessaires,
+      ou les déplacements hors zone. Contactez-moi pour un devis personnalisé.
+    </p>
+  </div>
+
+  <footer>
+    <div class="footer-logo"><span>AURA</span>FLIGHT</div>
+    <div class="footer-copy">© 2025 — Tous droits réservés</div>
+  </footer>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

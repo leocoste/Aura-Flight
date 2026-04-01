@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA FLIGHT — À propos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="notification" id="notification">Message envoyé avec succès ✓</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html"><span>AURA</span>FLIGHT</a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html" id="nav-portfolio">Portfolio</a></li>
+    <li><a href="forfaits.html" id="nav-forfaits">Forfaits</a></li>
+    <li><a href="apropos.html" id="nav-apropos" class="active">À propos</a></li>
+    <li><a href="contact.html" id="nav-contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE: À PROPOS -->
+<div id="page-apropos" class="page active">
+  <div class="apropos-intro">
+    <div>
+      <h2>PILOTE<br/>& <em>CRÉATEUR</em></h2>
+      <div class="apropos-stats">
+        <div><div class="stat-num">2+</div><div class="stat-label">Années d'expérience</div></div>
+        <div><div class="stat-num">50+</div><div class="stat-label">Heures de vol</div></div>
+        <div><div class="stat-num">2</div><div class="stat-label">Projets réalisés</div></div>
+      </div>
+    </div>
+    <div class="apropos-text">
+      <p>Passionné par l'image depuis toujours, j'ai trouvé dans la prise de vue aérienne une façon unique d'explorer et de révéler le monde sous un autre angle. Chaque vol est une opportunité de capturer quelque chose d'extraordinaire.</p>
+      <p>Prestataire indépendant basé en Auvergne Rhône Alpes, je travaille avec des artisans, des agences immobilières, des organisateurs d'événements et des particuliers qui souhaitent une image professionnelle, sans le budget d'une grande production.</p>
+      <p>Certifié téléopérateur par la DGAC, j'interviens en toute légalité sur l'ensemble du territoire, avec les autorisations nécessaires selon les zones de vol.</p>
+    </div>
+  </div>
+
+  <div class="drones-section">
+    <div class="section-label">Matériel professionnel</div>
+    <div class="drones-grid">
+      <div class="drone-card fade-in">
+        <div class="drone-visual">
+          <img src="img/mavic-air-2.png" alt="DJI Mavic Air 2" class="drone-img" id="air2-img">
+        </div>
+        <div class="drone-badge">Drone principal</div>
+        <div class="drone-name">DJI MAVIC AIR 2</div>
+        <div class="drone-type">Drone compact cinématique</div>
+        <ul class="drone-specs">
+          <li><span class="spec-key">Vidéo max</span><span class="spec-val">4K / 60fps</span></li>
+          <li><span class="spec-key">Autonomie</span><span class="spec-val">34 minutes</span></li>
+          <li><span class="spec-key">Stabilisation</span><span class="spec-val">3 axes, RockSteady</span></li>
+          <li><span class="spec-key">Portée</span><span class="spec-val">10 km</span></li>
+          <li><span class="spec-key">Résistance vent</span><span class="spec-val">38 km/h</span></li>
+        </ul>
+      </div>
+
+      <div class="drone-card fade-in">
+        <div class="drone-visual">
+          <img src="img/avata-2.png" alt="DJI Avata 2" class="drone-img" id="avata2-img">
+        </div>
+        <div class="drone-badge">Drone FPV</div>
+        <div class="drone-name">DJI AVATA 2</div>
+        <div class="drone-type">Drone FPV immersif</div>
+        <ul class="drone-specs">
+          <li><span class="spec-key">Vidéo max</span><span class="spec-val">4K / 60fps</span></li>
+          <li><span class="spec-key">Autonomie</span><span class="spec-val">23 minutes</span></li>
+          <li><span class="spec-key">Stabilisation</span><span class="spec-val">RockSteady 3.0</span></li>
+          <li><span class="spec-key">Style</span><span class="spec-val">FPV / Immersif</span></li>
+          <li><span class="spec-key">Vitesse max</span><span class="spec-val">27 m/s</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="certif-section">
+    <div class="section-label">Certifications & Légalité</div>
+    <div class="certif-grid">
+      <div class="certif-item fade-in">
+        <div class="certif-num">A1/A3</div>
+        <div class="certif-title">Certificat DGAC</div>
+        <div class="certif-desc">Téléopérateur certifié par la Direction Générale de l'Aviation Civile. Catégories A1 et A3 validées.</div>
+      </div>
+      <div class="certif-item fade-in">
+        <div class="certif-num">RC</div>
+        <div class="certif-title">Assurance RC Pro</div>
+        <div class="certif-desc">Responsabilité civile professionnelle adaptée à l'activité de prise de vue aérienne par drone.</div>
+      </div>
+      <div class="certif-item fade-in">
+        <div class="certif-num">FR</div>
+        <div class="certif-title">Enregistrement DGAC</div>
+        <div class="certif-desc">Drones enregistrés et immatriculés auprès des autorités françaises. Interventions en toute conformité.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-logo"><span>AURA</span>FLIGHT</div>
+    <div class="footer-copy">© 2025 — Tous droits réservés</div>
+  </footer>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

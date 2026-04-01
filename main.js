@@ -4,7 +4,7 @@ const ring = document.getElementById('cursorRing');
 let mx = 0, my = 0, rx = 0, ry = 0;
 const isTouch = window.matchMedia('(hover: none)').matches;
 
-if (!isTouch) {
+if (!isTouch && cursor && ring) {
   document.addEventListener('mousemove', e => {
     mx = e.clientX;
     my = e.clientY;
@@ -23,9 +23,12 @@ if (!isTouch) {
 }
 
 // ============ NAV SCROLL ============
-window.addEventListener('scroll', () => {
-  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
-});
+const mainNav = document.getElementById('mainNav');
+if (mainNav) {
+  window.addEventListener('scroll', () => {
+    mainNav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+}
 
 // ============ HAMBURGER MENU ============
 const hamburger = document.getElementById('navHamburger');
@@ -35,11 +38,9 @@ if (hamburger && navLinks) {
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('open');
-    // Bloquer le scroll du body quand le menu est ouvert
     document.body.style.overflow = navLinks.classList.contains('open') ? 'hidden' : '';
   });
 
-  // Fermer le menu au clic sur un lien
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', closeMenu);
   });
@@ -51,18 +52,6 @@ function closeMenu() {
     navLinks.classList.remove('open');
     document.body.style.overflow = '';
   }
-}
-
-// ============ PAGE NAVIGATION ============
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
-  document.getElementById('nav-' + id).classList.add('active');
-  window.scrollTo(0, 0);
-  closeMenu(); // Fermer le menu hamburger si ouvert
-  observeFadeIns();
-  return false;
 }
 
 // ============ FADE IN OBSERVER ============
@@ -79,29 +68,24 @@ function observeFadeIns() {
 }
 observeFadeIns();
 
-// ============ FORM SUBMIT ============
+// ============ FORM SUBMIT (contact.html uniquement) ============
 const contactForm = document.getElementById('contact-form');
 
 if (contactForm) {
   contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
 
-    // 1. On récupère le texte exact séléctionné par l'utilisateur
     const selectElt = document.getElementById('f-projet');
     const selectedText = selectElt.options[selectElt.selectedIndex].text;
 
-    // 2. On crée l'objet de données
     const formData = new FormData(contactForm);
     const object = Object.fromEntries(formData);
 
-    // 3. ON SYNCHRONISE TOUT :
-    // On force le champ "type_projet" et "subject" avec le TEXTE visible
-    object.type_projet = selectedText; 
+    object.type_projet = selectedText;
     object.subject = "Demande pour : " + selectedText;
 
     const json = JSON.stringify(object);
 
-    // --- Reste du code (Bouton + Fetch) ---
     const btn = contactForm.querySelector('.btn-submit');
     const originalText = btn.innerHTML;
     btn.innerHTML = "Envoi en cours...";
@@ -118,8 +102,10 @@ if (contactForm) {
     .then(async (response) => {
       if (response.status == 200) {
         const notif = document.getElementById('notification');
-        notif.classList.add('show');
-        setTimeout(() => notif.classList.remove('show'), 3500);
+        if (notif) {
+          notif.classList.add('show');
+          setTimeout(() => notif.classList.remove('show'), 3500);
+        }
         contactForm.reset();
       } else {
         const result = await response.json();
@@ -135,15 +121,17 @@ if (contactForm) {
       btn.disabled = false;
     });
   });
+}
 
-  // ============ LIGHTBOX ============
-  const items = document.querySelectorAll('#portfolio .grid-item');
-  const lightbox = document.getElementById('lightbox');
-  const content = document.getElementById('lightbox-content');
-  const closeBtn = document.querySelector('.close');
-  const nextBtn = document.querySelector('.next');
-  const prevBtn = document.querySelector('.prev');
+// ============ LIGHTBOX (index.html uniquement) ============
+const items = document.querySelectorAll('#portfolio .grid-item');
+const lightbox = document.getElementById('lightbox');
+const content = document.getElementById('lightbox-content');
+const closeBtn = document.querySelector('.close');
+const nextBtn = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
 
+if (items.length > 0 && lightbox && content && closeBtn && nextBtn && prevBtn) {
   let currentIndex = 0;
 
   function showMedia(index) {

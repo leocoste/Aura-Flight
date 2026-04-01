@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AURA FLIGHT — Contact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="notification" id="notification">Message envoyé avec succès ✓</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a class="nav-logo" href="index.html"><span>AURA</span>FLIGHT</a>
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="index.html" id="nav-portfolio">Portfolio</a></li>
+    <li><a href="forfaits.html" id="nav-forfaits">Forfaits</a></li>
+    <li><a href="apropos.html" id="nav-apropos">À propos</a></li>
+    <li><a href="contact.html" id="nav-contact" class="active">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- PAGE: CONTACT -->
+<div id="page-contact" class="page active">
+  <div class="contact-layout">
+    <div class="contact-info">
+      <div>
+        <div class="section-label">Me contacter</div>
+        <h2>PARLONS<br/>DE VOTRE<br/><em>PROJET</em></h2>
+        <p>Un événement à immortaliser, une propriété à valoriser, une idée à concrétiser ? Je suis à l'écoute pour construire ensemble la prestation qui correspond à vos besoins.</p>
+        <div class="contact-details">
+          <div class="contact-detail-item">
+            <div class="contact-detail-label">Email professionnel</div>
+            <div class="contact-detail-val">contact@auraflight.fr</div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-label">Zone d'intervention principale</div>
+            <div class="contact-detail-val">Auvergne Rhône Alpes</div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-label">Délai de réponse</div>
+            <div class="contact-detail-val">Sous 24h ouvrées</div>
+          </div>
+          <div class="contact-detail-item">
+            <div class="contact-detail-label">Disponibilité</div>
+            <div class="contact-detail-val">Sam – Dim, 8h – 20h</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:0.75rem; color:var(--dim); line-height:1.8; margin-top:40px;">
+          Devis gratuit et sans engagement. Chaque projet est unique — n'hésitez pas à décrire votre besoin même de manière approximative, je saurai vous orienter vers la bonne formule.
+        </p>
+      </div>
+    </div>
+
+    <form id="contact-form">
+      <input type="hidden" name="access_key" value="102f770f-6d08-47e5-b6d8-f5c4bec3d5bf">
+      <input type="hidden" name="subject" id="f-subject" value="Nouveau contact depuis AURA FLIGHT">
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Prénom</label>
+          <input type="text" name="prenom" id="f-prenom" placeholder="Votre prénom" required/>
+        </div>
+        <div class="form-group">
+          <label>Nom</label>
+          <input type="text" name="nom" id="f-nom" placeholder="Votre nom"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" id="f-email" placeholder="votre@email.com" required/>
+      </div>
+      <div class="form-group">
+        <label>Téléphone (optionnel)</label>
+        <input type="tel" name="telephone" id="f-tel" placeholder="+33 6 ..."/>
+      </div>
+      <div class="form-group">
+        <label>Lieu de la prestation</label>
+        <input type="text" name="lieu_prestation" id="f-lieu" placeholder="Ville, Code Postal ou Lieu-dit" required/>
+      </div>
+      <div class="form-group">
+        <label>Type de projet</label>
+        <select name="type_projet" id="f-projet">
+          <option value="Non spécifié">— Sélectionner —</option>
+          <option>Événements</option>
+          <option>Publicité</option>
+          <option>Immobilier</option>
+          <option>Mariage / Événement privé</option>
+          <option>Architecture / Construction</option>
+          <option>Tourisme / Paysage</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" id="f-message" placeholder="Décrivez votre projet..." required></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit" class="btn-submit">Envoyer le message</button>
+        <div class="form-note">Réponse sous 24h ouvrées</div>
+      </div>
+    </form>
+
+  </div><!-- /.contact-layout -->
+
+  <footer>
+    <div class="footer-logo"><span>AURA</span>FLIGHT</div>
+    <div class="footer-copy">© 2025 — Tous droits réservés</div>
+  </footer>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
